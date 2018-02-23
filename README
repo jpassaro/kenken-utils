@@ -8,4 +8,37 @@ This is from 2014, before I cared much about style, so it reads
 very ugly, but there is a scary level of detail and logic in here
 that I thought worth displaying.
 
-Enjoy!
+Short example of usage: suppose you have this shape in kenken:
+
+
+----------
+|144     |
+|        |
+|        |
+-------------------
+|        |        |
+|        |        |
+|        |        |
+-------------------
+
+Suppose further that by "sudoku" logic you know:
+* the two left boxes are at most 9 and cannot be 5, 6, 7 or 8
+* The outlier box on the right is at must 12 but neither 2, 3, or 9.
+
+Run the following python code:
+
+from kenken import *
+print list(lShapes(krange(9, 5, 6, 7, 8), 3, C2=krange(12, 2, 3, 9), multTo=144))
+print lShapesSummary(krange(9, 5, 6, 7, 8), 3, C2=krange(12, 2, 3, 9), multTo=144)
+
+You'll see the following:
+[((2, 9), 8), ((3, 4), 12), ((4, 9), 4)]
+([2, 3, 4, 9], [4, 8, 12])
+
+To break it down:
+krange(n, a, b, c) specifies a range of numbers up to n inclusive,
+excluding a, b, c.
+lShapes(...) gives the specific combinations this L-shape can have.
+lShapesSummary(...) summarizes by giving all possible values for the
+individual squares: the left column is restricted to [2,3,4,9] and
+the right to [4, 8, 12]
