@@ -1,0 +1,11 @@
+Some python functions I wrote to help me play Kenken.
+
+I would typically open it up as "python -i kenken.py" and
+execute functions to help me narrow down possibilities for a given
+Kenken block.
+
+This is from 2014, before I cared much about style, so it reads
+very ugly, but there is a scary level of detail and logic in here
+that I thought worth displaying.
+
+Enjoy!
